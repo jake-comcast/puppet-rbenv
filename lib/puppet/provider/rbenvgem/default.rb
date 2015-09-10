@@ -40,6 +40,7 @@ Puppet::Type.type(:rbenvgem).provide :default do
         :custom_environment => {
           'HOME'          => home,
           'RBENV_VERSION' => resource[:ruby],
+          'RUBYLIB'       => "#{resource[:rbenv]}/lib/ruby/site_ruby/#{resource[:ruby].split('.')[0..-2].join('.')}.0",
         }
       )
     end
